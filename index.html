@@ -1,1 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>QuintiMath</title>
+    <style>
+        input {
+            width: 353px;
+            height: 40px;
+            font-size: 30px;
+            margin-left: 3px;
+            text-align: right;
+        }
 
+        button {
+            width: 70px;
+            height: 50px;
+            text-align: center;
+            font-size: 24px;
+            font-family: Arial;
+        }
+
+        #b_eq {
+            width: 145px;
+            text-align: center;
+        }
+
+        .shifted {
+            margin-left: -74px;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="in">
+    <table>
+        <tr>
+            <tr>
+                <td><button id="b_7">7</button></td>
+                <td><button id="b_8">8</button></td>
+                <td><button id="b_9">9</button></td>
+                <td><button id="b_back"><×</button></td>
+                <td><button class="shifted" id="b_c">C</button></td>
+                <td><option></option></td>
+            </tr>
+            <tr>
+                <td><button id="b_4">4</button></td>
+                <td><button id="b_5">5</button></td>
+                <td><button id="b_6">6</button></td>
+                <td><button id="b_mul">×</button></td>
+                <td><button class="shifted" id="b_div">÷</button></td>
+            </tr>
+            <tr>
+                <td><button id="b_1">1</button></td>
+                <td><button id="b_2">2</button></td>
+                <td><button id="b_3">3</button></td>
+                <td><button id="b_plus">+</button></td>
+                <td><button class="shifted" id="b_min">-</button></td>
+            </tr>
+            <tr>
+                <td><button id="b_per">%</button></td>
+                <td><button id="b_0">0</button></td>
+                <td><button id="b_com">,</button></td>
+                <td><button id="b_eq">=</button></td>                             
+            </tr>
+        </tr>
+    </table>
+    <script>
+        var vi = document.getElementById("in");
+            t_1 = document.getElementById("b_1");
+            t_2 = document.getElementById("b_2");
+            t_3 = document.getElementById("b_3");
+            t_4 = document.getElementById("b_4");
+            t_5 = document.getElementById("b_5");
+            t_6 = document.getElementById("b_6");
+            t_7 = document.getElementById("b_7");
+            t_8 = document.getElementById("b_8");
+            t_9 = document.getElementById("b_9");
+            t_0 = document.getElementById("b_0");
+            t_plus = document.getElementById("b_plus");
+            t_min = document.getElementById("b_min");
+            t_mul = document.getElementById("b_mul");
+            t_div = document.getElementById("b_div");
+            t_eq = document.getElementById("b_eq");
+            t_com = document.getElementById("b_com");
+            t_per = document.getElementById("b_per");
+            t_back = document.getElementById("b_back");
+            t_c = document.getElementById("b_c");
+
+        function valueIncluder(va) {
+            vi.value += va;
+        }
+        t_1.addEventListener(onclick, valueIncluder(1));
+        
+        // function actionObserver(elem) {
+        //     elem.addEventListener(onclick, valueIncluder(1));
+        // }
+
+        // actionObserver(t_1);
+    </script>
+</body>
+</html>
