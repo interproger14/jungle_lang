@@ -1,0 +1,3 @@
+Console.out("Hello, world")
+Console.out(123)
+Console.out(789)
