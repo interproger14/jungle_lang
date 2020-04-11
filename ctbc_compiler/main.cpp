@@ -45,6 +45,17 @@ void get_object(int mode) {
 			cout << hv8 << endl;
 			hv7++;
 		}
+	} else if(mode == 2) {
+		hv7 = hv5 + 1;
+		while(true) {
+			hv14 = hv1[hv7];
+			if(hv14 == ')') {
+				break;
+			}
+			hv8 += hv14;
+			cout << hv8 << endl;
+			hv7++;
+		}
 	}
 }
 
@@ -101,6 +112,14 @@ int main() {
 				hv8 = "";
 				hv9 = 0;
 				hv10 = false;
+			} else if(hv4 == '(') {
+				hv5 = hv3;
+				get_object(2);
+				hv6.set_lexems("method_parameters", hv8);
+				hv12.push_back(hv6);
+				lexems_list.push_back(hv12);
+				hv8 = "";
+				
 			} else {
 				cout << hv4 << endl;
 			}
