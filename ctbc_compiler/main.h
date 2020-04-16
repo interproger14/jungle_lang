@@ -21,4 +21,21 @@ struct Lexems {
 	}
 };
 
+struct method_dict {
+	string mt;
+	vector<vector<Lexems>> coms;
+
+	 
+};
+
+struct class_dict {
+	string cl;
+	vector<method_dict> mth;
+
+	void set(string c, vector<method_dict> mt) {
+		cl = c;
+		mth = mt;
+	}
+};
+
 #endif
