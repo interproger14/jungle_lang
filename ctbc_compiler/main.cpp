@@ -26,6 +26,10 @@ int hv13 = 0;
 char hv14;
 string hv15;
 int hv16 = 0;
+string hv17;
+string hv18;
+string hv19;
+int hv20;
 
 void get_object(int mode) {
 	if(mode == 0) {
@@ -42,7 +46,7 @@ void get_object(int mode) {
 				break;
 			}
 			hv8 += hv14;
-			cout << hv8 << endl;
+			//cout << hv8 << endl;
 			hv7++;
 		}
 	} else if(mode == 2) {
@@ -53,8 +57,23 @@ void get_object(int mode) {
 				break;
 			}
 			hv8 += hv14;
-			cout << hv8 << endl;
+			//cout << hv8 << endl;
 			hv7++;
+		}
+		hv7 = 0;
+		if(hv8[hv7] == '"') {
+			while(true) {
+				if(hv8[hv7] == '"') {
+					break;
+				}
+				hv18 += hv8[hv7];
+				hv7++;
+			}
+			hv8 = hv18;
+			hv18 = "";
+			hv19 = "string";
+		} else {
+			hv19 = "number";
 		}
 	}
 }
@@ -63,7 +82,6 @@ int main() {
 	while(getline(source_file, hv1)) {
 		w_s.push_back(hv1);
 	}
-
 	while(hv2 < w_s.size()) {
 		hv1 = w_s[hv2];
 		while(hv3 < hv1.size()) {
@@ -103,11 +121,11 @@ int main() {
 					hv16++;
 				}
 				if(!hv10) {
-					cerr << "Wrong method name at line " << hv2 + 1 << endl;
+					cerr << "Wrong method name" << endl;
 					return 1;
 				}
-				cout << hv8 << endl;
-				cout << hv4 << endl;
+				//cout << hv8 << endl;
+				//cout << hv4 << endl;
 				hv16 = 0;
 				hv8 = "";
 				hv9 = 0;
@@ -115,13 +133,12 @@ int main() {
 			} else if(hv4 == '(') {
 				hv5 = hv3;
 				get_object(2);
-				hv6.set_lexems("method_parameters", hv8);
+				hv6.set_lexems(hv19, hv8);
 				hv12.push_back(hv6);
 				lexems_list.push_back(hv12);
 				hv8 = "";
-				
 			} else {
-				cout << hv4 << endl;
+				//cout << hv4 << endl;
 			}
 			hv3++;
 		}
@@ -132,6 +149,20 @@ int main() {
 
 	while(hv11 < lexems_list.size()) {
 		while(hv13 < lexems_list[hv11].size()) {
+			if(lexems_list[hv11][hv13].type == "class" && lexems_list[hv11][hv13].token == "Console") {
+				hv20 = hv13 + 1;
+				// cout << hv20;
+				// cout << hv20 << endl;
+				// cout << hv20 << endl;
+				// cout << hv20 << endl;
+				// if(1 > 0 && 1 > 0 && 1 > 0 && 1 > 0 && 1 > 0 && 1 > 0 && 1 > 0 && 1 > 0 && 1 > 0 && 1 > 0) {
+				// 	cout << hv20 << "eee" << endl;
+				// }
+
+				if(lexems_list[hv11][hv20].type == "method" && lexems_list[hv11][hv20].token == "out") {
+			 		cout << lexems_list[hv11][hv13 + 2].token;
+				}
+			}
 			lexems_list[hv11][hv13].print_lexems();
 			hv13++;
 		}
