@@ -29,7 +29,9 @@ int hv16 = 0;
 string hv17;
 string hv18;
 string hv19;
-int hv20;
+string hv20;
+Lexems hv21;
+Lexems hv22;
 
 void get_object(int mode) {
 	if(mode == 0) {
@@ -150,7 +152,11 @@ int main() {
 	while(hv11 < lexems_list.size()) {
 		while(hv13 < lexems_list[hv11].size()) {
 			if(lexems_list[hv11][hv13].type == "class" && lexems_list[hv11][hv13].token == "Console") {
-				hv20 = hv13 + 1;
+				hv20 = lexems_list[hv11][hv13].token;
+				// hv21.set_lexems(lexems_list[hv11][hv20].type, lexems_list[hv11][hv20].token);
+				// hv22 = lexems_list[hv11][hv20];
+				// cout << hv21.token << endl;
+				// cout << hv22.type << endl;
 				// cout << hv20;
 				// cout << hv20 << endl;
 				// cout << hv20 << endl;
@@ -159,9 +165,11 @@ int main() {
 				// 	cout << hv20 << "eee" << endl;
 				// }
 
-				if(lexems_list[hv11][hv20].type == "method" && lexems_list[hv11][hv20].token == "out") {
-			 		cout << lexems_list[hv11][hv13 + 2].token;
-				}
+				// if(hv21 == "method" && hv22 == "out") {
+			 	// 	cout << lexems_list[hv11][hv13 + 2].token;
+				// }
+			} else if(lexems_list[hv11][hv13].type == "method" && lexems_list[hv11][hv13].token == "out" && hv20 == "Console") {
+				cout << "work!" << endl;
 			}
 			lexems_list[hv11][hv13].print_lexems();
 			hv13++;
